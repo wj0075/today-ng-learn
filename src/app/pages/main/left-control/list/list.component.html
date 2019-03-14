@@ -1,0 +1,19 @@
+<ul nz-menu
+    [nzTheme]="'dark'"
+    [nzMode]="'inline'"
+    [nzInlineCollapsed]="isCollapsed">
+  <li nz-menu-item
+      [nzSelected]="currentListUuid === 'today'"
+      (click)="click('today')">
+    <span>
+      <i nz-icon type="home"></i>
+      <span class="nav-text">Today</span>
+    </span>
+  </li>
+  <li nz-menu-item
+      (click)="click('todo')"
+      [nzSelected]="currentListUuid === 'todo'">
+    <i nz-icon type="calendar"></i>
+    <span class="nav-text">TODO</span>
+  </li>
+</ul>

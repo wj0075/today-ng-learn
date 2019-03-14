@@ -1,0 +1,22 @@
+<div class="header-wrapper">
+  <img src="./assets/img/default-avatar.png" alt="">
+  <span class="username-text">
+    {{userName}}
+  </span>
+  <div class="floating-btn header-btn">
+    <i nz-icon type="setting"></i>
+  </div>
+  <div class="floating-btn header-btn">
+    <i nz-icon type="calendar"></i>
+  </div>
+</div>
+
+<div class="list-wrapper">
+  <app-list [isCollapsed]="isCollapsed"></app-list>
+  <div class="add-list-btn-wrapper">
+    <button nz-button nzGhost nzTpye="dashed">
+      <i nz-icon type="plus"></i>
+      <span>新列表</span>
+    </button>
+  </div>
+</div>
