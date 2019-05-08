@@ -15,9 +15,9 @@ export class TodoService {
   rank$ = new Subject<RankBy>();
   completedHide$ = new Subject<boolean>();
 
-  private todos: Todo[] = [];
-  private rank: RankBy = 'title';
-  private completeHide = false;
+  private todos: Todo[] = [];             // 所有的todo项
+  private rank: RankBy = 'title';         // todo项当前所示的级别
+  private completeHide = false;           // 完成是否隐藏
 
   constructor(
     private listService: ListService,
@@ -25,17 +25,17 @@ export class TodoService {
   ) {
     this.todos = this.store.getList(TODOS);
   }
-
+  // 广播
   private broadCast(): void {
     this.todo$.next(this.todos);
     this.rank$.next(this.rank);
     this.completedHide$.next(this.completeHide);
   }
-
+  // 存储
   private persist(): void {
     this.store.set(TODOS, this.todos);
   }
-
+  // 获取所有的todo项
   getAll(): void {
     this.todos = this.store.getList(TODOS);
     this.broadCast();
@@ -43,11 +43,11 @@ export class TodoService {
   getRaw(): Todo[] {
     return this.todos;
   }
-
+  // 通过uuid获取符合的todo项
   getByUUID(uuid: string): Todo | null {
     return this.todos.filter((todo: Todo) => todo._id === uuid)[0] || null;
   }
-
+  // 设置今天的todo项
   setTodoToday(uuid: string): void {
     const todo = this.getByUUID(uuid);
     if (todo && !todo.completedFlag) {
