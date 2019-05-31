@@ -29,7 +29,7 @@
 
 <ng-template #contextTemplate>
   <ul nz-menu
-      nzInDropDOwn
+      nzInDropDown
       nzSelectable
       (nzClick)="close()">
     <li nz-menu-item
@@ -63,6 +63,27 @@
                name="listTitle"
                placeholder="列表名称"
                (keydown.enter)="add(listInput.value); listInput.value = '';">
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-modal>
+<nz-modal [(nzVisible)]="renameListModalVisible"
+          [nzTitle]="'重命名列表'"
+          [nzWidth]="420"
+          [nzOkText]="'重命名'"
+          [nzCancelText]="'取消'"
+          [nzMaskClosable]="true"
+          (nzOnCancel)="closeRenameListModal()"
+          (nzOnOk)="rename(listRenameInput.value); listRenameInput.value = '';">
+
+  <form nz-form>
+    <nz-form-item>
+      <nz-form-control>
+        <input nz-input
+               #listRenameInput
+               placeholder="列表名称"
+               name="renameListTitle"
+               (keydown.enter)="rename(listRenameInput.value); listRenameInput.value = '';">
       </nz-form-control>
     </nz-form-item>
   </form>

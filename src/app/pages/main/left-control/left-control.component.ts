@@ -12,14 +12,25 @@ export class LeftControlComponent implements OnInit {
   @Input() isCollapsed: boolean;
   @ViewChild(ListComponent) listComponent: ListComponent;
   userName: string;
+
   constructor(
     private store: LocalStorageService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.userName = this.store.get(USERNAME);
   }
+
   openAddListModal(): void {
     this.listComponent.openAddListModal();
+  }
+
+  goSetting() {
+
+  }
+
+  goSummary() {
+
   }
 }

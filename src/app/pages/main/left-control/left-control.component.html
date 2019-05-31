@@ -1,12 +1,12 @@
 <div class="header-wrapper">
   <img src="./assets/img/default-avatar.png" alt="">
-  <span class="username-text">
+  <span class="username-text" *ngIf="!isCollapsed">
     {{userName}}
   </span>
-  <div class="floating-btn header-btn">
+  <div (click)="goSetting()" *ngIf="!isCollapsed" class="floating-btn header-btn">
     <i nz-icon type="setting"></i>
   </div>
-  <div class="floating-btn header-btn">
+  <div (click)="goSummary()" *ngIf="!isCollapsed" class="floating-btn header-btn">
     <i nz-icon type="calendar"></i>
   </div>
 </div>
